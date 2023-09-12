@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
+import jwt from 'jwt-decode'
 
 const HomeComponent = () => {
-  return (
-    <div>HomePage</div>
-  )
+  
+    const [user, setUser] = useState(null)
+
+    
+
+
 }
 
 export default HomeComponent

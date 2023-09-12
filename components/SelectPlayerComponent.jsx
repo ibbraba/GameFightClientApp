@@ -1,27 +1,33 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import data from '../utils/demo_data.json'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 const SelectPlayerComponent = () => {
 
-    const [caracters, setCaracters] = useState(data)
+    const [caracters, setCaracters] = useState([])
+
+
+    useEffect( () => { 
+      getCaracters()
+    }, [])
 
     async function getCaracters(){
-
-      const response = axios.get("http://localhost:3000/caracter")
+      
+      // Add Token To request 
+      const response = await (await axios.get("http://localhost:3000/caracter")).headers()
+      setCaracters(response.data)
       console.log(response);
     }
 
-    getCaracters()
 
 
   return (
     <div> 
-        {caracters.map( caracter => 
+        {caracters && caracters.map( caracter => 
             
             
-      <div key={caracter.id} className="player-card P1-card">
+      <div key={caracter.name} className="player-card P1-card">
       <img className="card-img-top" src={caracter.picture} alt="Card image cap"></img>
         <div className="card-body">
           <h5 className="card-title">{caracter.name}</h5>

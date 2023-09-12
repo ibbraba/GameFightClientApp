@@ -10,7 +10,7 @@ const SelectPlayerPage = () => {
 
 
    <h3> Tu ne trouves pas le tien ? Alors Commence-en nouveau </h3>
-    <button>Créer un personnage</button>
+    <button className='btn btn-primary'>Créer un personnage</button>
 
    </>
   )
