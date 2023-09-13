@@ -1,9 +1,11 @@
 import axios, { Axios } from 'axios'
 import React, { useState } from 'react'
+import { useNavigate } from "react-router-dom";
+
 
 export async function IsUserLoggedIn(){
     const token = localStorage.getItem('gf-token')
-    console.log(token);
+  //  console.log(token);
 
 
     const headers = {
@@ -22,6 +24,7 @@ export async function IsUserLoggedIn(){
     }
 }
 
+
 const LoginComponent = () => {
 
 
@@ -29,10 +32,33 @@ const LoginComponent = () => {
  
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
+    const [errorMessage, setErrorMessage] = useState(null)
+    const navigate = useNavigate();
+    
+    
+    
+     async function checkUser(){
+
+      const userLogged = await IsUserLoggedIn()
+
+
+      console.log(userLogged.data );
+
+      if(userLogged.data === true){
+  
+        navigate("/")
+      }
+
+    } 
+
+    checkUser()
 
 
     async function connectUser(){
 
+
+      try {
+      
       console.log("username: " + username);
       console.log("PW: " + password);
 
@@ -42,7 +68,17 @@ const LoginComponent = () => {
       })
       console.log(response );
       localStorage.setItem("gf-token", response.data)
+      navigate("/select-player")
+
+        
+      } catch (error) {
+        
+      
+      console.log(error.response.data.message);
+      setErrorMessage(error.response.data.message)
+
     }
+    } 
 
 
    
@@ -50,6 +86,8 @@ const LoginComponent = () => {
   
     return (
     <>
+
+    {errorMessage && <div className='bg-danger'>  {errorMessage} </div>}
     
     <h2>Tu veux jouer ? Connectes toi d'abord</h2>
 

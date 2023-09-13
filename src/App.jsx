@@ -8,6 +8,7 @@ import LoginPage from '../pages/LoginPage'
 import SelectPlayerPage from '../pages/SelectPlayerPage'
 import ScorePage from '../pages/ScorePage'
 import GamePage from '../pages/GamePage'
+import LogoutPage from '../pages/LogoutPage'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -22,7 +23,9 @@ function App() {
         <Route path='/login' element={<LoginPage></LoginPage>}></Route>
         <Route path="/select-player" element={<SelectPlayerPage></SelectPlayerPage>}></Route>
         <Route path="/score" element={<ScorePage></ScorePage>}></Route>
-        <Route path="/game" element={<GamePage></GamePage>}></Route> 
+        <Route path="/game/:p1/:p2" element={<GamePage></GamePage>}></Route> 
+        <Route path="/logout" element={<LogoutPage></LogoutPage>}></Route> 
+        
       </Routes>
 
 

@@ -1,24 +1,18 @@
 import React, { useState } from 'react'
 import PlayerComponent from './PlayerComponent';
+import { useParams } from 'react-router-dom';
 
 
 const GameComponent = () => {
 
   const [round, setRound] = useState(1)
-  const [player1, setPlayer1] = useState({
-    "name" : null, 
-    "health" : 100, 
-    "isAlive" : true
+  const [player1, setPlayer1] = useState(null)
 
-  })
-
-  const [player2, setPlayer2] = useState ({
-    "name" : "IA", 
-    "health" : 100, 
-    "isAlive" : true
-  })
+  const [player2, setPlayer2] = useState (null)
   
-  
+  const{ p1, p2 } = useParams()
+  console.log(p1);
+  console.log(p2);
 
 
   function endGame() {

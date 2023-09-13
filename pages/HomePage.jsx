@@ -33,10 +33,14 @@ const HomePage = () => {
 
         <HomeComponent></HomeComponent>
 
-        {/* If Connected  */}
-        <Link to={"/select-player"}> Jouer </Link>
+        {isAuthenticated && <>
+        
+          <Link to={"/select-player"}> Jouer </Link>
+          <Link to={"/logout"}>Se Deconnecter</Link>
+        </> }
+        
 
-        {/* Else login / register */}
+        {!isAuthenticated && <Link to={"/login"}> Connectes-toi et joue </Link>}
 
     </div>
   )

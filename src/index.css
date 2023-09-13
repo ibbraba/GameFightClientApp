@@ -32,16 +32,27 @@ body {
   min-height: 100vh;
 }
 
-
+.caracters-display{
+  display: flex;
+  width: 80vw;
+  flex-direction: row;
+  justify-content: space-around;
+}
 
 .player-card {
-  width: 26rem;
-  padding: 4px;
+  margin-right: 0;
+  width: 35rem;
+  border-radius: 7px;
+  padding: 23px;
   background-color: #213547;
   border: 1PX solid black;
   color: white;
 }
 
+.player-card img{
+  width: 260px;
+  height: 260px;
+}
 
 .gameboard {
   display: flex;
@@ -53,9 +64,12 @@ body {
 .player-action {
   display: flex;
   flex-direction: row;
-  padding-left: 0;
-
-  color: black;
+  padding: 4px;
+  margin: 0 auto;
+  
+  max-width: 284px;
+  text-align: center;
+  flex-direction: column;
 }
 
 .player-action li {
