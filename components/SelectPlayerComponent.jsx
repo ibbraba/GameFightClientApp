@@ -25,7 +25,7 @@ const SelectPlayerComponent = () => {
         "Authorization": token
       }
       // Add Token To request 
-      const response =  await axios.get("http://localhost:3000/private/caracter", {headers : headers})
+      const response =  await axios.get("http://localhost:3000/private/caracters", {headers : headers})
       setCaracters(response.data)
       //console.log(response);
     }
@@ -96,6 +96,7 @@ const SelectPlayerComponent = () => {
             e.preventDefault; 
             setSelectedCaracter(caracter)
             selectIACaracter()
+            
            
 
             }}>Choisir</button>
