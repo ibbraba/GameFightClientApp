@@ -37,7 +37,8 @@ const SelectPlayerComponent = () => {
       copyCaracters.splice(index, 1)
     //  console.log("Index :" + index);
     //  console.log("copyCaracters");
-    //  console.log(copyCaracters);
+      console.log(copyCaracters);
+      
 
       var randomCaracter = copyCaracters[Math.floor(Math.random()*copyCaracters.length)];
     //  console.log("IA pick : ");
